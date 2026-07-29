@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="1000" viewBox="0 0 800 1000" fill="none">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="800" y2="1000" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#121214"/>
+      <stop offset="0.45" stop-color="#3a3a40"/>
+      <stop offset="1" stop-color="#0a0a0b"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(420 380) rotate(90) scale(420 360)">
+      <stop stop-color="#c4c4cc" stop-opacity="0.25"/>
+      <stop offset="1" stop-color="#c4c4cc" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="800" height="1000" fill="url(#bg)"/>
+  <rect width="800" height="1000" fill="url(#glow)"/>
+  <g stroke="#e6e6e8" stroke-opacity="0.28" stroke-width="1.2">
+    <circle cx="400" cy="420" r="180"/>
+    <circle cx="400" cy="420" r="260"/>
+    <circle cx="400" cy="420" r="340"/>
+    <path d="M120 420 H680 M400 140 V700"/>
+    <path d="M210 230 L590 610 M590 230 L210 610"/>
+  </g>
+  <g fill="#e6e6e8">
+    <circle cx="400" cy="420" r="10"/>
+    <circle cx="400" cy="240" r="6" fill="#c4c4cc"/>
+    <circle cx="560" cy="420" r="6" fill="#c4c4cc"/>
+    <circle cx="400" cy="600" r="6" fill="#c4c4cc"/>
+    <circle cx="240" cy="420" r="6" fill="#c4c4cc"/>
+    <circle cx="520" cy="280" r="5"/>
+    <circle cx="280" cy="560" r="5"/>
+  </g>
+  <text x="64" y="900" fill="#8b8b93" font-family="ui-monospace, monospace" font-size="22" letter-spacing="4">AI · FULL STACK</text>
+</svg>

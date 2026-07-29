@@ -1,0 +1,121 @@
+"use client";
+
+import { useRef } from "react";
+import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
+
+interface TextMatrixRainProps {
+  children: string;
+  className?: string;
+  duration?: number;
+  repeat?: boolean;
+  accentColor?: string;
+}
+
+export default function TextMatrixRain({
+  children,
+  className = "",
+  duration = 2.4,
+  repeat = false,
+  accentColor = "var(--accent)",
+}: TextMatrixRainProps) {
+  const containerRef = useRef<HTMLDivElement>(null);
+  const textRef = useRef<HTMLSpanElement>(null);
+
+  useGSAP(
+    () => {
+      const el = textRef.current;
+      if (!el) return;
+
+      const reduced =
+        typeof window !== "undefined" &&
+        window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      if (reduced) {
+        el.textContent = children;
+        return;
+      }
+
+      const finalText = children;
+      const matrixChars =
+        "アイウエオカキクケコサシスセソタチツテトナニヌネノハヒフヘホマミムメモヤユヨラリルレロワヲン0123456789";
+      const intervals: ReturnType<typeof setInterval>[] = [];
+
+      const runAnimation = () => {
+        const charStates = new Array(finalText.length).fill(false);
+        const charElements: HTMLSpanElement[] = [];
+
+        el.innerHTML = "";
+        finalText.split("").forEach((char) => {
+          const span = document.createElement("span");
+          span.style.display = "inline-block";
+          span.style.color = accentColor;
+          span.style.textShadow = `0 0 10px ${accentColor}`;
+          span.textContent =
+            char === " "
+              ? "\u00A0"
+              : matrixChars[Math.floor(Math.random() * matrixChars.length)];
+          el.appendChild(span);
+          charElements.push(span);
+        });
+
+        charElements.forEach((span, i) => {
+          if (finalText[i] === " ") {
+            span.textContent = "\u00A0";
+            return;
+          }
+
+          const lockDelay = i * 0.08 + Math.random() * 0.35;
+
+          const scrambleInterval = setInterval(() => {
+            if (!charStates[i]) {
+              span.textContent =
+                matrixChars[Math.floor(Math.random() * matrixChars.length)];
+            }
+          }, 50);
+          intervals.push(scrambleInterval);
+
+          gsap.delayedCall(lockDelay, () => {
+            clearInterval(scrambleInterval);
+            charStates[i] = true;
+            span.style.color = "";
+            span.textContent = finalText[i];
+            gsap.fromTo(
+              span,
+              {
+                textShadow: `0 0 20px ${accentColor}, 0 0 40px ${accentColor}`,
+              },
+              {
+                duration: 0.45,
+                textShadow: "0 0 0px transparent",
+                ease: "power2.out",
+              },
+            );
+          });
+        });
+      };
+
+      runAnimation();
+
+      let repeatInterval: ReturnType<typeof setInterval> | undefined;
+      if (repeat) {
+        repeatInterval = setInterval(() => {
+          intervals.forEach(clearInterval);
+          intervals.length = 0;
+          runAnimation();
+        }, (duration + 1) * 1000);
+      }
+
+      return () => {
+        if (repeatInterval) clearInterval(repeatInterval);
+        intervals.forEach(clearInterval);
+      };
+    },
+    { scope: containerRef, dependencies: [children, duration, repeat, accentColor] },
+  );
+
+  return (
+    <div ref={containerRef} className={className}>
+      <span ref={textRef}>{children}</span>
+    </div>
+  );
+}
