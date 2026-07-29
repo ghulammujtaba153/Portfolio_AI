@@ -15,6 +15,19 @@
     radial-gradient(45% 40% at 85% 20%, rgba(80, 80, 90, 0.12) 0%, transparent 50%),
     linear-gradient(165deg, #ececee 0%, #e4e4e7 50%, #d8d8dc 100%);
   --pattern-dot: rgba(17, 17, 19, 0.1);
+  --glass-border: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0.95) 0%,
+    rgba(180, 180, 190, 0.7) 52%,
+    rgba(255, 255, 255, 0.95) 100%
+  );
+  --glass-inner: linear-gradient(
+    263deg,
+    rgba(255, 255, 255, 0.95) 8%,
+    rgba(210, 210, 216, 0.9) 48%,
+    rgba(255, 255, 255, 0.95) 100%
+  );
+  --glass-shadow: 0 10px 22px rgba(17, 17, 19, 0.12);
   --font-display: var(--font-display), Georgia, serif;
   --font-mono: var(--font-mono), ui-monospace, monospace;
   color-scheme: light;
@@ -35,6 +48,19 @@ html.dark {
     radial-gradient(40% 45% at 88% 10%, rgba(120, 120, 130, 0.12) 0%, transparent 50%),
     linear-gradient(165deg, #0a0a0b 0%, #0e0e10 45%, #121214 100%);
   --pattern-dot: rgba(230, 230, 232, 0.07);
+  --glass-border: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0.45) 0%,
+    rgba(160, 160, 170, 0.65) 52%,
+    rgba(255, 255, 255, 0.45) 100%
+  );
+  --glass-inner: linear-gradient(
+    263deg,
+    rgba(230, 230, 235, 0.25) 10%,
+    rgba(60, 60, 68, 0.75) 49%,
+    rgba(230, 230, 235, 0.25) 100%
+  );
+  --glass-shadow: 0 12px 24px rgba(0, 0, 0, 0.28);
   color-scheme: dark;
 }
 
