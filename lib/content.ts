@@ -8,6 +8,7 @@ export type Project = {
   href?: string;
   featured: boolean;
   accent: string;
+  image?: string;
 };
 
 export const profile = {
@@ -128,6 +129,7 @@ export const projects: Project[] = [
       "Cross-platform personal diary with mood tags, searchable entries, and local persistence — built with React Native CLI.",
     featured: true,
     accent: "#c4c4cc",
+    image: "/projects/dairy-app.png",
   },
   {
     slug: "rag-bot",
@@ -147,6 +149,7 @@ export const projects: Project[] = [
     href: "https://rag-bot-ebon.vercel.app/",
     featured: true,
     accent: "#9a9aa2",
+    image: "/projects/rag-bot.png",
   },
   {
     slug: "map-harvest",
@@ -159,6 +162,7 @@ export const projects: Project[] = [
     href: "https://mapharvest.live/",
     featured: true,
     accent: "#7a7a82",
+    image: "/projects/mapharvest.png",
   },
   {
     slug: "msp-nlu",
@@ -169,6 +173,7 @@ export const projects: Project[] = [
       "Reproduced MSP for controllable NLU data generation — 95% of paper F1 on multi-intent, +16% intent recognition, +5–10% NER.",
     featured: true,
     accent: "#5a5a62",
+    image: "/projects/msp.png",
   },
   {
     slug: "pediatric-pneumonia-xai",
@@ -207,6 +212,7 @@ export const projects: Project[] = [
     href: "https://promptly-4tw7bdyvz89fndgygx9snv.streamlit.app/",
     featured: true,
     accent: "#a8a8b0",
+    image: "/projects/promptly.png",
   },
   {
     slug: "trader-365",
@@ -217,6 +223,7 @@ export const projects: Project[] = [
       "AI-integrated MERN ecosystem with admin dashboard, React Native sync, chatbot, and AWS CI/CD.",
     featured: true,
     accent: "#404048",
+    image: "/projects/trader365.png",
   },
   {
     slug: "chronedo-ai",
@@ -229,6 +236,7 @@ export const projects: Project[] = [
     href: "https://chronedo-ai-2.vercel.app/",
     featured: true,
     accent: "#b0b0b8",
+    image: "/projects/chronedo-ai.png",
   },
   {
     slug: "brain-tumor-mri",
@@ -249,6 +257,7 @@ export const projects: Project[] = [
       "Reproduced and extended automotive news classifiers — adaptive ensemble 96.52% F1, active learning cuts cost 80%.",
     featured: false,
     accent: "#909098",
+    image: "/projects/news-classification.png",
   },
   {
     slug: "property-check",
@@ -261,6 +270,7 @@ export const projects: Project[] = [
     href: "https://propertycheck.me/",
     featured: false,
     accent: "#3a3a40",
+    image: "/projects/propertycheck.png",
   },
   {
     slug: "infocus-media",
@@ -272,6 +282,7 @@ export const projects: Project[] = [
     href: "https://www.infocusmedia.ae/",
     featured: false,
     accent: "#86868e",
+    image: "/projects/infocus.png",
   },
   {
     slug: "vsp-interior",
@@ -296,6 +307,7 @@ export const projects: Project[] = [
     href: "https://first-date-app.vercel.app/login",
     featured: false,
     accent: "#4a4a52",
+    image: "/projects/firstdate.png",
   },
   {
     slug: "invoice-insight",
@@ -308,6 +320,7 @@ export const projects: Project[] = [
     href: "https://invoice-studio.vercel.app/",
     featured: false,
     accent: "#2c2c32",
+    image: "/projects/invoice.png",
   },
   {
     slug: "crowd-funding",
@@ -320,6 +333,7 @@ export const projects: Project[] = [
     href: "https://www.givetogrow.co.za/",
     featured: false,
     accent: "#66666e",
+    image: "/projects/crowdfunding.png",
   },
   {
     slug: "job-portal",
@@ -340,6 +354,7 @@ export const projects: Project[] = [
     href: "https://glp-three.vercel.app/en",
     featured: false,
     accent: "#c4c4cc",
+    image: "/projects/glp.png",
   },
 ];
 

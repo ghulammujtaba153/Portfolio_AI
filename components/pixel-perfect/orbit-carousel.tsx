@@ -137,11 +137,23 @@ export default function OrbitCarousel({
               marginLeft: -dims.cw / 2,
               marginTop: -dims.ch / 2,
               willChange: "transform, opacity, filter",
-              background: `linear-gradient(160deg, ${card.accent}55 0%, #1a1a1c 55%, #0a0a0b 100%)`,
+              background: card.image
+                ? "#0a0a0b"
+                : `linear-gradient(160deg, ${card.accent}55 0%, #1a1a1c 55%, #0a0a0b 100%)`,
             }}
           >
-            <div className="flex h-full flex-col justify-between p-4">
-              <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-white/60">
+            {card.image ? (
+              // eslint-disable-next-line @next/next/no-img-element
+              <img
+                src={card.image}
+                alt=""
+                className="absolute inset-0 size-full object-cover object-top"
+                draggable={false}
+              />
+            ) : null}
+            <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-black/35" />
+            <div className="relative flex h-full flex-col justify-between p-4">
+              <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-white/70">
                 {card.year}
                 {card.company ? ` · ${card.company}` : ""}
               </span>
@@ -149,7 +161,7 @@ export default function OrbitCarousel({
                 <p className="text-lg font-semibold leading-tight text-white">
                   {card.title}
                 </p>
-                <p className="mt-2 line-clamp-3 text-[11px] leading-snug text-white/70">
+                <p className="mt-2 line-clamp-3 text-[11px] leading-snug text-white/75">
                   {card.tools.slice(0, 4).join(" · ")}
                 </p>
               </div>
