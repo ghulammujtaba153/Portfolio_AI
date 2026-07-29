@@ -21,7 +21,7 @@ export const skillLogoSrc: Record<SkillLogoId, string> = {
   next: "https://cdn.simpleicons.org/nextdotjs/C4C4CC",
   node: "https://cdn.simpleicons.org/nodedotjs/8B8B93",
   mongo: "https://cdn.simpleicons.org/mongodb/8B8B93",
-  aws: "https://cdn.simpleicons.org/amazonaws/C4C4CC",
+  aws: "/skills/aws.svg",
   docker: "https://cdn.simpleicons.org/docker/8B8B93",
   fastapi: "https://cdn.simpleicons.org/fastapi/C4C4CC",
   langgraph: "https://cdn.simpleicons.org/langchain/C4C4CC",
