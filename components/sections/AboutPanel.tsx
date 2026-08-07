@@ -89,7 +89,7 @@ export default function AboutPanel({ className = "" }: { className?: string }) {
           fontSize="22"
           letterSpacing="4"
         >
-          AI · FULL STACK
+          AI ENGINEER
         </text>
       </svg>
     </div>

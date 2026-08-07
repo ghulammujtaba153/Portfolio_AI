@@ -23,11 +23,11 @@ export default function Contact() {
           Contact
         </p>
         <ScrollHeadline className="mt-3 max-w-2xl text-4xl font-semibold tracking-tight sm:text-5xl">
-          {"Let's build the next AI-native product"}
+          {"Let's ship the next intelligent system"}
         </ScrollHeadline>
-        <p className="mt-4 max-w-xl text-muted">
-          Based in {profile.location}. Open to full-time, contract, and
-          research-to-production collaborations.
+        <p className="mt-4 max-w-xl text-sm leading-relaxed text-muted sm:text-base">
+          Based in {profile.location}. Open to full-time, contract, and roles
+          spanning research, ML engineering, and AI product delivery.
         </p>
 
         <StarBorder className="mt-10">
@@ -37,6 +37,12 @@ export default function Contact() {
             </GlassButton>
             <LiquidGlassButton href={profile.phoneHref}>
               {profile.phone}
+            </LiquidGlassButton>
+            <LiquidGlassButton href={profile.github}>
+              GitHub
+            </LiquidGlassButton>
+            <LiquidGlassButton href={profile.linkedin}>
+              LinkedIn
             </LiquidGlassButton>
           </div>
         </StarBorder>

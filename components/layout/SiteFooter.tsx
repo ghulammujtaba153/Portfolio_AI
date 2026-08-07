@@ -7,7 +7,25 @@ export default function SiteFooter() {
         <p className="font-mono text-[11px] uppercase tracking-[0.18em] text-muted">
           © {new Date().getFullYear()} {profile.name}
         </p>
-        <p className="text-sm text-muted">{profile.location}</p>
+        <div className="flex flex-wrap items-center gap-5">
+          <a
+            href={profile.github}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="font-mono text-[11px] uppercase tracking-[0.16em] text-muted transition-colors hover:text-accent"
+          >
+            GitHub
+          </a>
+          <a
+            href={profile.linkedin}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="font-mono text-[11px] uppercase tracking-[0.16em] text-muted transition-colors hover:text-accent"
+          >
+            LinkedIn
+          </a>
+          <p className="text-sm text-muted">{profile.location}</p>
+        </div>
       </div>
     </footer>
   );

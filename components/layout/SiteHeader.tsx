@@ -22,8 +22,24 @@ export default function SiteHeader() {
           ))}
         </nav>
         <div className="flex items-center gap-2 sm:gap-3">
+          <a
+            href={profile.github}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hidden font-mono text-[11px] uppercase tracking-[0.16em] text-muted transition-colors hover:text-accent sm:inline"
+          >
+            GitHub
+          </a>
+          <a
+            href={profile.linkedin}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hidden font-mono text-[11px] uppercase tracking-[0.16em] text-muted transition-colors hover:text-accent sm:inline"
+          >
+            LinkedIn
+          </a>
           <ThemeSwitch />
-          <LiquidGlassButton href="#top" className="hidden px-4 py-2 text-xs sm:inline-flex">
+          <LiquidGlassButton href="#contact" className="hidden px-4 py-2 text-xs sm:inline-flex">
             Hire me
           </LiquidGlassButton>
         </div>

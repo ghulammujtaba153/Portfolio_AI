@@ -17,13 +17,13 @@ const plexMono = IBM_Plex_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Ghulam Mujtaba | AI Full Stack Engineer",
+  title: "Ghulam Mujtaba | AI Engineer",
   description:
-    "AI Full Stack Engineer in Islamabad — MERN, LangGraph, RAG systems, and production AI products from research to cloud deployment.",
+    "AI Engineer in Islamabad — deep learning, computer vision, NLP, XAI, and production ML systems from training to cloud deployment.",
   openGraph: {
-    title: "Ghulam Mujtaba | AI Full Stack Engineer",
+    title: "Ghulam Mujtaba | AI Engineer",
     description:
-      "Portfolio of AI-integrated products — RAG pipelines, multimodal agents, and full-stack MERN systems.",
+      "Portfolio across deep learning, medical imaging, NLU research, generative AI, and full-stack production systems.",
     url: "https://portfolio-uay6.vercel.app/",
     type: "website",
   },

@@ -1,7 +1,7 @@
 "use client";
 
 /**
- * Orbit carousel — adapted from Pixel Perfect for portfolio projects.
+ * Orbit carousel — 3D ring with perspective, yaw, and depth.
  */
 
 import { useEffect, useRef, useState } from "react";
@@ -17,18 +17,25 @@ export default function OrbitCarousel({
   onActiveChange,
 }: OrbitCarouselProps) {
   const cardRefs = useRef<(HTMLDivElement | null)[]>([]);
-  const [dims, setDims] = useState({ rx: 330, ry: 78, cw: 190, ch: 250 });
+  const shineRefs = useRef<(HTMLDivElement | null)[]>([]);
+  const [dims, setDims] = useState({
+    rx: 330,
+    ry: 78,
+    rz: 220,
+    cw: 190,
+    ch: 250,
+  });
   const activeIndexRef = useRef(0);
 
   useEffect(() => {
     const update = () => {
       const w = window.innerWidth;
       if (w < 640) {
-        setDims({ rx: 130, ry: 48, cw: 140, ch: 190 });
+        setDims({ rx: 130, ry: 48, rz: 110, cw: 140, ch: 190 });
       } else if (w < 1024) {
-        setDims({ rx: 230, ry: 64, cw: 168, ch: 220 });
+        setDims({ rx: 230, ry: 64, rz: 160, cw: 168, ch: 220 });
       } else {
-        setDims({ rx: 330, ry: 78, cw: 190, ch: 250 });
+        setDims({ rx: 330, ry: 78, rz: 220, cw: 190, ch: 250 });
       }
     };
     update();
@@ -55,15 +62,31 @@ export default function OrbitCarousel({
         if (!el) continue;
         const theta = (i / N) * Math.PI * 2 + rot;
         const x = Math.sin(theta) * dims.rx;
-        const d = Math.cos(theta);
-        const y = d * dims.ry;
-        const near = (d + 1) / 2;
-        el.style.transform = `translate3d(${x}px, ${y}px, 0) scale(${0.5 + near * 0.6})`;
+        const z = Math.cos(theta) * dims.rz;
+        const y = Math.cos(theta) * dims.ry;
+        const near = (Math.cos(theta) + 1) / 2;
+        const rotY = reduced ? 0 : -Math.sin(theta) * 42;
+        const rotX = reduced ? 0 : 8 - near * 10;
+        const scale = 0.58 + near * 0.52;
+
+        el.style.transform = [
+          `translate3d(${x}px, ${y}px, ${z}px)`,
+          `rotateY(${rotY}deg)`,
+          `rotateX(${rotX}deg)`,
+          `scale(${scale})`,
+        ].join(" ");
         el.style.zIndex = String(Math.round(near * 200));
-        el.style.opacity = String(0.35 + near * 0.65);
+        el.style.opacity = String(0.32 + near * 0.68);
         el.style.filter = reduced
           ? "none"
-          : `blur(${(1 - near) * 2}px) brightness(${0.65 + near * 0.35})`;
+          : `blur(${(1 - near) * 1.8}px) brightness(${0.62 + near * 0.38})`;
+
+        const shine = shineRefs.current[i];
+        if (shine && !reduced) {
+          const lx = 50 + Math.sin(theta) * 38;
+          shine.style.background = `radial-gradient(circle at ${lx}% 18%, rgba(255,255,255,${0.08 + near * 0.18}) 0%, transparent 52%)`;
+        }
+
         if (near > bestNear) {
           bestNear = near;
           bestIdx = i;
@@ -122,21 +145,27 @@ export default function OrbitCarousel({
     <div
       data-orbit
       className="relative flex h-[min(70vh,560px)] w-full cursor-grab select-none items-center justify-center overflow-hidden active:cursor-grabbing"
+      style={{ perspective: "1100px", perspectiveOrigin: "50% 42%" }}
     >
-      <div className="relative">
+      <div
+        className="relative"
+        style={{ transformStyle: "preserve-3d" }}
+      >
         {items.map((card, i) => (
           <div
             key={card.slug}
             ref={(el) => {
               cardRefs.current[i] = el;
             }}
-            className="absolute overflow-hidden rounded-xl ring-1 ring-white/20 shadow-[0_25px_50px_-12px_rgba(0,0,0,0.55)]"
+            className="absolute overflow-hidden rounded-xl ring-1 ring-white/20 shadow-[0_30px_60px_-18px_rgba(0,0,0,0.7)]"
             style={{
               width: dims.cw,
               height: dims.ch,
               marginLeft: -dims.cw / 2,
               marginTop: -dims.ch / 2,
               willChange: "transform, opacity, filter",
+              transformStyle: "preserve-3d",
+              backfaceVisibility: "hidden",
               background: card.image
                 ? "#0a0a0b"
                 : `linear-gradient(160deg, ${card.accent}55 0%, #1a1a1c 55%, #0a0a0b 100%)`,
@@ -152,6 +181,17 @@ export default function OrbitCarousel({
               />
             ) : null}
             <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-black/35" />
+            <div
+              ref={(el) => {
+                shineRefs.current[i] = el;
+              }}
+              className="pointer-events-none absolute inset-0"
+              aria-hidden
+            />
+            <div
+              className="pointer-events-none absolute inset-y-0 left-0 w-px bg-white/25"
+              aria-hidden
+            />
             <div className="relative flex h-full flex-col justify-between p-4">
               <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-white/70">
                 {card.year}

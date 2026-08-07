@@ -1,44 +1,59 @@
+"use client";
+
+import { motion, useReducedMotion } from "motion/react";
 import { profile } from "@/lib/content";
-import GradientCoolAurora from "@/components/pixel-perfect/gradient-cool-aurora";
-import GradientDotMesh from "@/components/pixel-perfect/gradient-dot-mesh";
-import TextMatrixRain from "@/components/pixel-perfect/text-matrix-rain";
 import LiquidGlassButton from "@/components/pixel-perfect/liquid-glass-button";
 import MagneticButton from "@/components/pixel-perfect/magnetic-button";
+import HeroAtmosphere from "@/components/sections/HeroAtmosphere";
+import HeroName from "@/components/sections/HeroName";
+
+const ease = [0.22, 1, 0.36, 1] as const;
 
 export default function Hero() {
+  const reduced = useReducedMotion();
+
   return (
     <section
       id="top"
-      className="relative flex min-h-[100svh] items-end overflow-hidden pb-16 pt-28 sm:items-center sm:pb-24"
+      className="relative flex min-h-[100svh] items-center overflow-hidden pb-20 pt-28"
     >
-      <GradientCoolAurora />
-      <GradientDotMesh />
-      <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-bg/20 via-transparent to-bg" />
+      <HeroAtmosphere />
 
       <div className="section-pad relative z-10 mx-auto w-full max-w-6xl">
-        <p className="mb-5 font-mono text-[11px] uppercase tracking-[0.28em] text-accent">
-          Islamabad · AI systems · Full stack
-        </p>
-
-        <TextMatrixRain
-          className="font-display text-[clamp(2.75rem,10vw,6.5rem)] font-extrabold leading-[0.92] tracking-tight text-ink"
-          accentColor="var(--accent)"
-          repeat={false}
+        <motion.p
+          initial={reduced ? false : { opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, ease }}
+          className="font-mono text-[11px] uppercase tracking-[0.28em] text-accent"
         >
-          {profile.name}
-        </TextMatrixRain>
+          {profile.title}
+        </motion.p>
 
-        <p className="mt-5 max-w-xl text-lg text-muted sm:text-xl">
-          {profile.title}. Shipping research-grade AI into production MERN
-          products — from neural nets to cloud.
-        </p>
+        <HeroName name={profile.name} />
 
-        <div className="mt-8 flex flex-wrap items-center gap-2">
-          <MagneticButton href="#projects">View projects</MagneticButton>
+        <motion.p
+          initial={reduced ? false : { opacity: 0, y: 14 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.22, ease }}
+          className="mt-7 max-w-md text-sm leading-relaxed text-muted sm:text-base"
+        >
+          End-to-end AI — deep learning, vision, NLP, and generative
+          systems from training and XAI through APIs, apps, and cloud.
+        </motion.p>
+
+        <motion.div
+          initial={reduced ? false : { opacity: 0, y: 12 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.55, delay: 0.34, ease }}
+          className="mt-10 flex flex-wrap items-center gap-1 sm:gap-2"
+        >
+          <div className="-m-4 sm:-m-6">
+            <MagneticButton href="#projects">View projects</MagneticButton>
+          </div>
           <LiquidGlassButton href={`mailto:${profile.email}`}>
             Email me
           </LiquidGlassButton>
-        </div>
+        </motion.div>
       </div>
     </section>
   );
