@@ -103,7 +103,7 @@ export default function About() {
                 Stack
               </dt>
               <dd className="mt-2 text-sm font-medium">
-                React · FastAPI · PyTorch · AWS
+                React Native · FastAPI · PyTorch · AWS
               </dd>
             </div>
           </motion.dl>

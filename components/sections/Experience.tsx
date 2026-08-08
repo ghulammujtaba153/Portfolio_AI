@@ -13,7 +13,7 @@ export default function Experience() {
           Experience
         </p>
         <ScrollHeadline className="mt-3 max-w-4xl text-5xl font-extrabold uppercase tracking-tighter sm:text-6xl lg:text-7xl">
-          Models, products, and production systems
+          Product work and client delivery
         </ScrollHeadline>
 
         <ExperienceStack jobs={experience} />

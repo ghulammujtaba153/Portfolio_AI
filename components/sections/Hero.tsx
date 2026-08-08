@@ -36,7 +36,8 @@ export default function Hero() {
           className="mt-8 max-w-lg border-l-[4px] border-ink pl-4 text-sm leading-relaxed text-muted sm:text-base"
         >
           End-to-end AI — deep learning, vision, NLP, and generative
-          systems from training and XAI through APIs, apps, and cloud.
+          systems — plus freelance shipping of React Native, MERN, and
+          production backends.
         </motion.p>
 
         <motion.div

@@ -22,7 +22,7 @@ export const profile = {
   github: "https://github.com/ghulammujtaba153/",
   linkedin: "https://www.linkedin.com/in/ghulam-mujtaba-a35749243/",
   summary:
-    "AI Engineer spanning deep learning, computer vision, NLP, and generative systems — from training and evaluation through XAI, MLOps, and production deployment. I build and ship models and platforms across PyTorch/TensorFlow, FastAPI, and the MERN stack: medical imaging diagnostics, soft-prompt NLU research, multimodal LLM apps, and cloud inference on AWS. Currently pursuing a Masters in Artificial Intelligence at NUCES FAST, Islamabad, focused on reliable model lifecycles end to end.",
+    "AI Engineer spanning deep learning, computer vision, NLP, and generative systems — from training and evaluation through XAI, MLOps, and production deployment. I ship models and platforms across PyTorch/TensorFlow, FastAPI, and the MERN stack, and as a freelancer I own backend, React Native, and deployment for client products. Currently pursuing a Masters in Artificial Intelligence at NUCES FAST, Islamabad.",
 };
 
 export const experience = [
@@ -40,12 +40,15 @@ export const experience = [
   },
   {
     company: "Fiverr",
-    role: "Freelancer",
+    role: "Freelance Software Engineer",
     period: "07/2023 – Present",
     location: "Remote",
     bullets: [
-      "Delivered full-stack MERN applications with a focus on scalable, secure, on-time delivery.",
-      "Owned end-to-end client work from requirements through deployment and handoff.",
+      "Owned backend APIs and production deployment for a professor’s personal React Native app and paired admin dashboard.",
+      "Built a multi-role Dairy React Native application with role-based flows for staff and management.",
+      "Shipped a Laundry management platform on the MERN stack — bookings, orders, and admin operations.",
+      "Delivered Java and Python programming tasks and academic assignments with clean, documented solutions.",
+      "Ran client work end to end: requirements, implementation, deployment, and handoff.",
     ],
   },
 ];
@@ -99,6 +102,8 @@ export const skillGroups = [
       "Express.js",
       "NestJS",
       "FastAPI",
+      "Python",
+      "Java",
       "MongoDB",
       "MySQL",
       "Sequelize",
@@ -259,15 +264,38 @@ export const projects: Project[] = [
     image: "/projects/firstdate.png",
   },
   {
-    slug: "diary-app",
-    title: "Diary App",
-    year: "2026",
-    tools: ["React Native CLI", "TypeScript", "AsyncStorage"],
+    slug: "dairy-app",
+    title: "Dairy App",
+    year: "2024",
+    company: "Fiverr",
+    tools: ["React Native CLI", "Node.js", "Express", "MongoDB"],
     summary:
-      "Cross-platform personal diary with mood tags, searchable entries, and local persistence — built with React Native CLI.",
+      "Multi-role React Native dairy operations app — role-based access for staff and management, with backend APIs for day-to-day workflows.",
     featured: false,
     accent: "#c4c4cc",
     image: "/projects/dairy-app.png",
+  },
+  {
+    slug: "laundry-mern",
+    title: "Laundry Platform",
+    year: "2024",
+    company: "Fiverr",
+    tools: ["React", "Node.js", "Express", "MongoDB"],
+    summary:
+      "MERN laundry management system for bookings, order tracking, and admin operations — built and delivered for a freelance client.",
+    featured: false,
+    accent: "#9a9aa2",
+  },
+  {
+    slug: "professor-rn-suite",
+    title: "Professor App + Admin",
+    year: "2024",
+    company: "Fiverr",
+    tools: ["React Native", "Node.js", "Express", "Deployment"],
+    summary:
+      "Backend and production deployment for a professor’s personal React Native application with a companion admin dashboard.",
+    featured: false,
+    accent: "#7a7a82",
   },
   {
     slug: "property-check",
