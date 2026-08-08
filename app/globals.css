@@ -92,6 +92,43 @@ html.dark {
 
 html {
   scroll-behavior: smooth;
+  scrollbar-width: thin;
+  scrollbar-color: var(--ink) transparent;
+}
+
+html::-webkit-scrollbar {
+  width: 4px;
+  height: 4px;
+}
+
+html::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+html::-webkit-scrollbar-thumb {
+  background: var(--ink);
+  border-radius: 0;
+}
+
+html::-webkit-scrollbar-thumb:hover {
+  background: var(--accent-strong);
+}
+
+.projects-scroll {
+  scrollbar-width: thin;
+  scrollbar-color: var(--ink) transparent;
+}
+
+.projects-scroll::-webkit-scrollbar {
+  width: 3px;
+}
+
+.projects-scroll::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.projects-scroll::-webkit-scrollbar-thumb {
+  background: var(--ink);
 }
 
 body {

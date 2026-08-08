@@ -1,7 +1,10 @@
 import type { Metadata } from "next";
 import { Syne, IBM_Plex_Mono } from "next/font/google";
 import CursorGlow from "@/components/layout/CursorGlow";
+import ScrollProgress from "@/components/layout/ScrollProgress";
+import SmoothScroll from "@/components/layout/SmoothScroll";
 import { ThemeProvider } from "@/components/theme/ThemeProvider";
+import "lenis/dist/lenis.css";
 import "./globals.css";
 
 const syne = Syne({
@@ -57,8 +60,11 @@ export default function RootLayout({
       </head>
       <body className="min-h-full flex flex-col bg-bg text-ink">
         <ThemeProvider>
-          <CursorGlow />
-          {children}
+          <SmoothScroll>
+            <ScrollProgress />
+            <CursorGlow />
+            {children}
+          </SmoothScroll>
         </ThemeProvider>
       </body>
     </html>
