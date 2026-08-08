@@ -35,9 +35,18 @@ export default function Hero() {
           transition={{ duration: 0.5, delay: 0.18, ease }}
           className="mt-8 max-w-lg border-l-[4px] border-ink pl-4 text-sm leading-relaxed text-muted sm:text-base"
         >
-          End-to-end AI — deep learning, vision, NLP, and generative
-          systems — plus freelance shipping of React Native, MERN, and
-          production backends.
+          Deep learning, vision, NLP, and generative systems — from training
+          and XAI to APIs, React Native, and cloud deploy. Building at Mative;
+          shipping client products on Fiverr.
+        </motion.p>
+
+        <motion.p
+          initial={reduced ? false : { opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.45, delay: 0.24, ease }}
+          className="mt-5 font-mono text-[10px] font-bold uppercase tracking-[0.18em] text-muted"
+        >
+          {profile.location} · Masters AI @ FAST · {profile.availability}
         </motion.p>
 
         <motion.div

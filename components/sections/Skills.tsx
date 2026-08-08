@@ -12,8 +12,12 @@ export default function Skills() {
           Skills
         </p>
         <h2 className="mt-3 max-w-4xl text-5xl font-extrabold uppercase tracking-tighter sm:text-6xl lg:text-7xl">
-          Stack for end-to-end AI engineering
+          Tools I ship with
         </h2>
+        <p className="mt-3 max-w-xl text-sm text-muted sm:text-base">
+          Model work, APIs, mobile, and infra — the stack behind featured builds
+          and client delivery.
+        </p>
         <BarWaveAnimation className="mt-8" />
 
         <div className="mt-12 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">

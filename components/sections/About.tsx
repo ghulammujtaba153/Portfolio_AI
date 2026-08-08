@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, useReducedMotion } from "motion/react";
-import { education, profile } from "@/lib/content";
+import { education, highlights, profile } from "@/lib/content";
 import AboutPanel from "@/components/sections/AboutPanel";
 import ScrollHeadline from "@/components/pixel-perfect/scroll-headline";
 import BrutalAccent from "@/components/sections/BrutalAccent";
@@ -79,12 +79,34 @@ export default function About() {
             </ul>
           </motion.div>
 
+          <motion.div
+            initial={reduced ? false : { opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.35 }}
+            transition={{ duration: 0.55, delay: 0.1, ease }}
+            className="mt-12 grid grid-cols-2 gap-3 border-t-[3px] border-ink pt-8 sm:grid-cols-4"
+          >
+            {highlights.map((item) => (
+              <div
+                key={item.label}
+                className="border-[2px] border-ink bg-bg px-3 py-3 shadow-[3px_3px_0_var(--ink)]"
+              >
+                <p className="text-xl font-extrabold tracking-tight sm:text-2xl">
+                  {item.value}
+                </p>
+                <p className="mt-1 font-mono text-[9px] uppercase tracking-[0.14em] text-muted">
+                  {item.label}
+                </p>
+              </div>
+            ))}
+          </motion.div>
+
           <motion.dl
             initial={reduced ? false : { opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.4 }}
-            transition={{ duration: 0.55, delay: 0.12, ease }}
-            className="mt-12 grid gap-6 border-t-[3px] border-ink pt-8 sm:grid-cols-3"
+            transition={{ duration: 0.55, delay: 0.14, ease }}
+            className="mt-8 grid gap-6 sm:grid-cols-3"
           >
             <div>
               <dt className="font-mono text-[10px] uppercase tracking-[0.18em] text-muted">

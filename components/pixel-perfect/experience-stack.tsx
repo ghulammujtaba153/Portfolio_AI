@@ -35,7 +35,12 @@ function StackCard({ i, job, progress, range, targetScale }: Omit<CardProps, "ac
         }}
         className="relative w-full max-w-3xl origin-top border-[3px] border-ink bg-bg p-6 shadow-[10px_10px_0_var(--ink)] sm:p-8"
       >
-        <div className="mb-5 h-3 w-full bg-ink" />
+        <div className="mb-5 flex items-center justify-between gap-3">
+          <div className="h-3 flex-1 bg-ink" />
+          <span className="font-mono text-[10px] font-bold uppercase tracking-[0.16em] text-muted">
+            {String(i + 1).padStart(2, "0")}
+          </span>
+        </div>
         <div className="flex flex-wrap items-baseline justify-between gap-2">
           <h3 className="text-2xl font-extrabold uppercase tracking-tight text-ink sm:text-3xl">
             {job.role}
@@ -44,8 +49,11 @@ function StackCard({ i, job, progress, range, targetScale }: Omit<CardProps, "ac
             {job.period}
           </span>
         </div>
-        <p className="mt-2 font-mono text-xs uppercase tracking-[0.14em] text-muted">
-          {job.company} · {job.location}
+        <p className="mt-2 text-lg font-semibold tracking-tight text-ink">
+          {job.company}
+        </p>
+        <p className="mt-1 font-mono text-[11px] uppercase tracking-[0.14em] text-muted">
+          {job.location}
         </p>
         <ul className="mt-6 space-y-3">
           {job.bullets.map((bullet) => (

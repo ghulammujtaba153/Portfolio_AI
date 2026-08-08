@@ -21,8 +21,8 @@ export default function Contact() {
           {"Let's ship the next intelligent system"}
         </ScrollHeadline>
         <p className="mt-4 max-w-xl text-sm leading-relaxed text-muted sm:text-base">
-          Based in {profile.location}. Open to full-time, contract, and roles
-          spanning research, ML engineering, and AI product delivery.
+          Based in {profile.location}. {profile.availability} — research, ML
+          engineering, and AI product roles. Prefer email for opportunities.
         </p>
 
         <StarBorder className="mt-10">

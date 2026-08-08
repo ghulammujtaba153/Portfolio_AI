@@ -21,9 +21,17 @@ export const profile = {
   site: "https://portfolio-uay6.vercel.app/",
   github: "https://github.com/ghulammujtaba153/",
   linkedin: "https://www.linkedin.com/in/ghulam-mujtaba-a35749243/",
+  availability: "Open to full-time & contract",
   summary:
-    "AI Engineer spanning deep learning, computer vision, NLP, and generative systems — from training and evaluation through XAI, MLOps, and production deployment. I ship models and platforms across PyTorch/TensorFlow, FastAPI, and the MERN stack, and as a freelancer I own backend, React Native, and deployment for client products. Currently pursuing a Masters in Artificial Intelligence at NUCES FAST, Islamabad.",
+    "AI Engineer focused on deep learning, computer vision, NLP, and generative systems — from training and XAI through MLOps and production APIs. At Mative I ship AI products and full-stack platforms; as a freelancer I own backend, React Native, and deployment for client apps. Masters in AI at NUCES FAST, Islamabad.",
 };
+
+export const highlights = [
+  { value: "93.1%", label: "Pneumonia XAI accuracy" },
+  { value: "91%", label: "MRI diagnosis accuracy" },
+  { value: "96.5%", label: "News classifier F1" },
+  { value: "<30ms", label: "MRI server inference" },
+];
 
 export const experience = [
   {
@@ -32,10 +40,10 @@ export const experience = [
     period: "02/2025 – Present",
     location: "Islamabad, Pakistan",
     bullets: [
-      "Built Chronedo.ai (Next.js + LightX + Stripe) for AI product-image enhancement and subscriptions.",
-      "Shipped TCH Crowd Funding — MERN donation platform with admin, donor, and campaigner dashboards.",
-      "Enhanced Property Checks CRM, customer portal, and Pabbly email/WhatsApp automation.",
-      "Contributed to trading-app admin/backend and integrated an AI call agent with the web app.",
+      "Shipped Chronedo.ai — Next.js + LightX + Stripe for AI product-image enhancement and subscriptions.",
+      "Built TCH Crowd Funding (MERN) with admin, donor, and campaigner dashboards and live campaign tracking.",
+      "Hardened Property Checks CRM and customer portal; automated email/WhatsApp via Pabbly.",
+      "Extended trading-app admin/backend and wired an AI call agent into the web product.",
     ],
   },
   {
@@ -44,11 +52,10 @@ export const experience = [
     period: "07/2023 – Present",
     location: "Remote",
     bullets: [
-      "Owned backend APIs and production deployment for a professor’s personal React Native app and paired admin dashboard.",
-      "Built a multi-role Dairy React Native application with role-based flows for staff and management.",
-      "Shipped a Laundry management platform on the MERN stack — bookings, orders, and admin operations.",
-      "Delivered Java and Python programming tasks and academic assignments with clean, documented solutions.",
-      "Ran client work end to end: requirements, implementation, deployment, and handoff.",
+      "Owned backend APIs and production deploy for a professor’s React Native app plus admin dashboard.",
+      "Built a multi-role Dairy React Native app with staff/management flows and supporting Node APIs.",
+      "Delivered a Laundry MERN platform covering bookings, order tracking, and admin operations.",
+      "Completed Java and Python programming tasks for academic clients with documented, runnable solutions.",
     ],
   },
 ];
@@ -77,7 +84,7 @@ export const skillGroups = [
       "NLP",
       "Generative AI",
       "XAI",
-      "Langchain",
+      "LangChain",
       "LangGraph",
       "CrewAI",
       "RAG",
@@ -128,9 +135,10 @@ export const projects: Project[] = [
     year: "2026",
     tools: ["DenseNet121", "Grad-CAM++", "Transfer Learning"],
     summary:
-      "Chest X-ray diagnostic pipeline hitting 93.1% accuracy with DenseNet121 and Grad-CAM++ for clinical transparency.",
+      "Chest X-ray pipeline at 93.1% accuracy with DenseNet121 and Grad-CAM++ explanations for clinical trust.",
     featured: true,
     accent: "#8b8b93",
+    image: "/projects/pneumonia.png",
   },
   {
     slug: "brain-tumor-mri",
@@ -138,9 +146,10 @@ export const projects: Project[] = [
     year: "2026",
     tools: ["TensorFlow", "DenseNet121", "ViT", "Grad-CAM"],
     summary:
-      "4-class MRI system with 91% accuracy, Grad-CAM localization, and <30ms server inference.",
+      "4-class MRI classifier at 91% accuracy with Grad-CAM localization and under 30ms server inference.",
     featured: true,
     accent: "#707078",
+    image: "/projects/brain-tumor.png",
   },
   {
     slug: "msp-nlu",
@@ -148,7 +157,7 @@ export const projects: Project[] = [
     year: "2026",
     tools: ["PyTorch", "Soft Prompts", "NER", "NLU"],
     summary:
-      "Reproduced MSP for controllable NLU data generation — 95% of paper F1 on multi-intent, +16% intent recognition, +5–10% NER.",
+      "MSP reproduction for controllable NLU data — 95% of paper F1 on multi-intent, +16% intent, +5–10% NER.",
     featured: true,
     accent: "#5a5a62",
     image: "/projects/msp.png",
@@ -159,7 +168,7 @@ export const projects: Project[] = [
     year: "2026",
     tools: ["PyTorch", "BERT", "Qwen", "LoRA"],
     summary:
-      "Reproduced and extended automotive news classifiers — adaptive ensemble 96.52% F1, active learning cuts cost 80%.",
+      "Automotive news classifiers with adaptive ensemble at 96.52% F1; active learning cut labeling cost ~80%.",
     featured: true,
     accent: "#909098",
     image: "/projects/news-classification.png",
@@ -178,7 +187,7 @@ export const projects: Project[] = [
       "Whisper",
     ],
     summary:
-      "Production multimodal RAG pipeline with hybrid Chroma + BM25 retrieval (RRF), Groq reranking, SSE streaming, speech I/O, and Langfuse tracing.",
+      "Multimodal RAG with hybrid Chroma + BM25 (RRF), Groq rerank, SSE streaming, speech I/O, and Langfuse tracing.",
     href: "https://rag-bot-ebon.vercel.app/",
     featured: true,
     accent: "#9a9aa2",
@@ -190,7 +199,7 @@ export const projects: Project[] = [
     year: "2025",
     tools: ["LangGraph", "Groq", "Streamlit"],
     summary:
-      "AI web app builder that turns natural-language prompts into production-ready static HTML/CSS/JS sites.",
+      "LangGraph builder that turns natural-language prompts into production-ready static HTML/CSS/JS sites.",
     href: "https://promptly-4tw7bdyvz89fndgygx9snv.streamlit.app/",
     featured: true,
     accent: "#a8a8b0",
@@ -203,11 +212,46 @@ export const projects: Project[] = [
     company: "Mative Inc",
     tools: ["React.js", "Express.js", "Tailwind", "MongoDB", "Gemini", "Twilio"],
     summary:
-      "AI-driven CRM with browser-extension lead extraction, Gemini multimodal voice agents, WhatsApp verification, and real-time team collaboration. Drove acquisition with Meta ads and converted paid subscriptions.",
+      "AI CRM with extension lead capture, Gemini voice agents, WhatsApp verification, and Meta-ad growth into paid plans.",
     href: "https://mapharvest.live/",
     featured: true,
     accent: "#7a7a82",
     image: "/projects/mapharvest.png",
+  },
+  // More work — freelance first, then product work; Chronedo last
+  {
+    slug: "dairy-app",
+    title: "Dairy App",
+    year: "2024",
+    company: "Fiverr",
+    tools: ["React Native CLI", "Node.js", "Express", "MongoDB"],
+    summary:
+      "Multi-role dairy operations app on React Native — staff and management flows backed by Node APIs.",
+    featured: false,
+    accent: "#c4c4cc",
+    image: "/projects/dairy-app.png",
+  },
+  {
+    slug: "laundry-mern",
+    title: "Laundry Platform",
+    year: "2024",
+    company: "Fiverr",
+    tools: ["React", "Node.js", "Express", "MongoDB"],
+    summary:
+      "MERN laundry system for bookings, order tracking, and admin ops — scoped, built, and handed off on Fiverr.",
+    featured: false,
+    accent: "#9a9aa2",
+  },
+  {
+    slug: "professor-rn-suite",
+    title: "Professor App + Admin",
+    year: "2024",
+    company: "Fiverr",
+    tools: ["React Native", "Node.js", "Express", "Deployment"],
+    summary:
+      "Backend and production deployment for a professor’s React Native app with a paired admin dashboard.",
+    featured: false,
+    accent: "#7a7a82",
   },
   {
     slug: "cardio-hema-hub",
@@ -233,7 +277,7 @@ export const projects: Project[] = [
     company: "Mative Inc",
     tools: ["Next.js", "MongoDB", "Stripe", "GenAI"],
     summary:
-      "GenAI invoice extraction with a centralized dashboard and Stripe credit billing.",
+      "GenAI invoice extraction with a central dashboard and Stripe credit-based billing.",
     href: "https://invoice-studio.vercel.app/",
     featured: false,
     accent: "#2c2c32",
@@ -245,7 +289,7 @@ export const projects: Project[] = [
     year: "2025",
     tools: ["Next.js", "Express.js", "MongoDB", "AWS", "Github Actions"],
     summary:
-      "AI-integrated MERN ecosystem with admin dashboard, React Native sync, chatbot, and AWS CI/CD.",
+      "AI-ready MERN stack with admin dashboard, React Native sync, chatbot, and AWS CI/CD.",
     featured: false,
     accent: "#404048",
     image: "/projects/trader365.png",
@@ -257,45 +301,11 @@ export const projects: Project[] = [
     company: "Mative Inc",
     tools: ["React", "Express", "Agora", "Socket.io", "Stripe"],
     summary:
-      "Real-time dating app with video, chat, events, ID verification, and face recognition.",
+      "Real-time dating product with video, chat, events, ID checks, and face recognition.",
     href: "https://first-date-app.vercel.app/login",
     featured: false,
     accent: "#4a4a52",
     image: "/projects/firstdate.png",
-  },
-  {
-    slug: "dairy-app",
-    title: "Dairy App",
-    year: "2024",
-    company: "Fiverr",
-    tools: ["React Native CLI", "Node.js", "Express", "MongoDB"],
-    summary:
-      "Multi-role React Native dairy operations app — role-based access for staff and management, with backend APIs for day-to-day workflows.",
-    featured: false,
-    accent: "#c4c4cc",
-    image: "/projects/dairy-app.png",
-  },
-  {
-    slug: "laundry-mern",
-    title: "Laundry Platform",
-    year: "2024",
-    company: "Fiverr",
-    tools: ["React", "Node.js", "Express", "MongoDB"],
-    summary:
-      "MERN laundry management system for bookings, order tracking, and admin operations — built and delivered for a freelance client.",
-    featured: false,
-    accent: "#9a9aa2",
-  },
-  {
-    slug: "professor-rn-suite",
-    title: "Professor App + Admin",
-    year: "2024",
-    company: "Fiverr",
-    tools: ["React Native", "Node.js", "Express", "Deployment"],
-    summary:
-      "Backend and production deployment for a professor’s personal React Native application with a companion admin dashboard.",
-    featured: false,
-    accent: "#7a7a82",
   },
   {
     slug: "property-check",
@@ -304,7 +314,7 @@ export const projects: Project[] = [
     company: "Mative Inc",
     tools: ["React", "MySQL", "Sequelize", "Redux", "Pabbly"],
     summary:
-      "CRM enhancements, customer portal, and Pabbly automation for email and WhatsApp.",
+      "CRM and customer-portal upgrades plus Pabbly automation for email and WhatsApp.",
     href: "https://propertycheck.me/",
     featured: false,
     accent: "#3a3a40",
@@ -330,7 +340,7 @@ export const projects: Project[] = [
     company: "Mative Inc",
     tools: ["Next.js", "Express", "Supabase", "AWS"],
     summary:
-      "Full-stack ERP for interior design — projects, inventory, vendors, quotations, invoicing.",
+      "Interior-design ERP — projects, inventory, vendors, quotations, and invoicing.",
     href: "https://dev.myvsp.co.nz/login",
     featured: false,
     accent: "#585860",
@@ -341,7 +351,7 @@ export const projects: Project[] = [
     year: "2025",
     company: "Mative Inc",
     tools: ["Next.js", "MongoDB", "GSAP"],
-    summary: "Company website with a custom CMS for dynamic content updates.",
+    summary: "Company site with a custom CMS for ongoing content updates.",
     href: "https://www.infocusmedia.ae/",
     featured: false,
     accent: "#86868e",
@@ -352,7 +362,7 @@ export const projects: Project[] = [
     title: "GLP",
     year: "2025",
     tools: ["Next.js", "MongoDB"],
-    summary: "Responsive UI components and multilingual pages for the GLP frontend.",
+    summary: "Responsive UI and multilingual pages for the GLP frontend.",
     href: "https://glp-three.vercel.app/en",
     featured: false,
     accent: "#c4c4cc",
@@ -364,7 +374,7 @@ export const projects: Project[] = [
     year: "2024",
     tools: ["React", "Express", "MongoDB", "JWT", "Socket.io"],
     summary:
-      "Job posting, shortlisting, and management with auth and responsive UI.",
+      "Job posting, shortlisting, and management with JWT auth and responsive UI.",
     featured: false,
     accent: "#505058",
   },
@@ -375,7 +385,7 @@ export const projects: Project[] = [
     company: "Mative Inc",
     tools: ["Next.js", "LightX API", "Stripe"],
     summary:
-      "Next.js platform for AI product-image enhancement with Stripe subscription management.",
+      "AI product-image enhancement platform with Stripe subscription billing.",
     href: "https://chronedo-ai-2.vercel.app/",
     featured: false,
     accent: "#b0b0b8",

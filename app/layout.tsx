@@ -22,11 +22,11 @@ const plexMono = IBM_Plex_Mono({
 export const metadata: Metadata = {
   title: "Ghulam Mujtaba | AI Engineer",
   description:
-    "AI Engineer in Islamabad — deep learning, computer vision, NLP, XAI, and production ML systems from training to cloud deployment.",
+    "AI Engineer in Islamabad — deep learning, computer vision, NLP, XAI, React Native, and production ML systems. Open to full-time and contract.",
   openGraph: {
     title: "Ghulam Mujtaba | AI Engineer",
     description:
-      "Portfolio across deep learning, medical imaging, NLU research, generative AI, and full-stack production systems.",
+      "Medical imaging, NLU research, generative AI products, and freelance React Native / MERN delivery.",
     url: "https://portfolio-uay6.vercel.app/",
     type: "website",
   },

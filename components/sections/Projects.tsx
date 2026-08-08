@@ -545,6 +545,11 @@ export default function Projects() {
                     <span className="font-mono text-[10px] uppercase tracking-[0.16em] text-muted transition-colors group-hover:text-ink">
                       {String(i + 1).padStart(2, "0")}
                     </span>
+                    {project.company ? (
+                      <span className="border border-ink px-1.5 py-0.5 font-mono text-[9px] font-bold uppercase tracking-[0.12em] text-ink">
+                        {project.company}
+                      </span>
+                    ) : null}
                   </div>
                   <p className="mt-1 max-w-2xl line-clamp-2 text-sm text-muted">
                     {project.summary}
