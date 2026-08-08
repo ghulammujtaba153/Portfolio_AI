@@ -1,72 +1,85 @@
 @import "tailwindcss";
 
+/*
+  Light: original cool grey (#ececee) from first monochrome theme.
+  Dark: warm charcoal + #f2f2f2 ink (unchanged).
+*/
+
 :root {
-  /* Light — cool grey */
+  /* Original cool light */
+  --mist: #ececee;
+  --ivory: #e4e4e7;
+  --cream: #d8d8dc;
+  --snow: #f5f5f6;
+  --linen: #e8e8ea;
+
   --bg: #ececee;
   --bg-elevated: #f5f5f6;
+  --bg-warm: #e4e4e7;
+  --bg-panel: #e8e8ea;
+  --bg-highlight: #d8d8dc;
   --ink: #111113;
   --muted: #64646c;
   --accent: #2c2c32;
   --accent-soft: rgba(44, 44, 50, 0.1);
   --accent-strong: #111113;
-  --line: rgba(17, 17, 19, 0.12);
+  --line: #111113;
   --cursor-glow: rgba(44, 44, 50, 0.14);
   --aurora: radial-gradient(50% 50% at 20% 15%, rgba(0, 0, 0, 0.06) 0%, transparent 55%),
     radial-gradient(45% 40% at 85% 20%, rgba(80, 80, 90, 0.12) 0%, transparent 50%),
     linear-gradient(165deg, #ececee 0%, #e4e4e7 50%, #d8d8dc 100%);
   --pattern-dot: rgba(17, 17, 19, 0.1);
-  --glass-border: linear-gradient(
-    90deg,
-    rgba(255, 255, 255, 0.95) 0%,
-    rgba(180, 180, 190, 0.7) 52%,
-    rgba(255, 255, 255, 0.95) 100%
-  );
-  --glass-inner: linear-gradient(
-    263deg,
-    rgba(255, 255, 255, 0.95) 8%,
-    rgba(210, 210, 216, 0.9) 48%,
-    rgba(255, 255, 255, 0.95) 100%
-  );
-  --glass-shadow: 0 10px 22px rgba(17, 17, 19, 0.12);
-  --font-display: var(--font-display), Georgia, serif;
+  --glass-border: #111113;
+  --glass-inner: #f5f5f6;
+  --glass-shadow: 6px 6px 0 #111113;
+  --brutal-shadow: 8px 8px 0 var(--ink);
+  --brutal-shadow-lg: 14px 14px 0 var(--ink);
+  --font-display: var(--font-display), Impact, Haettenschweiler, sans-serif;
   --font-mono: var(--font-mono), ui-monospace, monospace;
   color-scheme: light;
 }
 
 html.dark {
-  /* Dark — blackish + grey */
-  --bg: #0a0a0b;
-  --bg-elevated: #121214;
-  --ink: #e6e6e8;
-  --muted: #8b8b93;
-  --accent: #c4c4cc;
-  --accent-soft: rgba(196, 196, 204, 0.12);
-  --accent-strong: #f0f0f2;
-  --line: rgba(230, 230, 232, 0.1);
-  --cursor-glow: rgba(196, 196, 204, 0.16);
-  --aurora: radial-gradient(50% 50% at 18% 18%, rgba(255, 255, 255, 0.05) 0%, transparent 55%),
-    radial-gradient(40% 45% at 88% 10%, rgba(120, 120, 130, 0.12) 0%, transparent 50%),
-    linear-gradient(165deg, #0a0a0b 0%, #0e0e10 45%, #121214 100%);
-  --pattern-dot: rgba(230, 230, 232, 0.07);
-  --glass-border: linear-gradient(
-    90deg,
-    rgba(255, 255, 255, 0.45) 0%,
-    rgba(160, 160, 170, 0.65) 52%,
-    rgba(255, 255, 255, 0.45) 100%
+  /* Warm dark — #fffff0 / #fffdd0 / #f2f2f2 / #fffafa / #f0ead6 family */
+  --ivory: #2a2824;
+  --cream: #3a3528;
+  --snow: #22201c;
+  --linen: #2e2a24;
+  --mist: #141210;
+
+  --bg: #141210;
+  --bg-elevated: #1c1a16;
+  --bg-warm: #22201c;
+  --bg-panel: #2a2620;
+  --bg-highlight: #3a3528;
+  --ink: #f2f2f2;
+  --muted: #a8a49c;
+  --accent: #f2f2f2;
+  --accent-soft: rgba(242, 242, 242, 0.1);
+  --accent-strong: #fffafa;
+  --line: #f2f2f2;
+  --cursor-glow: rgba(242, 242, 242, 0.14);
+  --aurora: linear-gradient(
+    165deg,
+    #141210 0%,
+    #1c1a16 50%,
+    #2a2620 100%
   );
-  --glass-inner: linear-gradient(
-    263deg,
-    rgba(230, 230, 235, 0.25) 10%,
-    rgba(60, 60, 68, 0.75) 49%,
-    rgba(230, 230, 235, 0.25) 100%
-  );
-  --glass-shadow: 0 12px 24px rgba(0, 0, 0, 0.28);
+  --pattern-dot: rgba(242, 242, 242, 0.08);
+  --glass-border: #f2f2f2;
+  --glass-inner: #1c1a16;
+  --glass-shadow: 6px 6px 0 #f2f2f2;
+  --brutal-shadow: 8px 8px 0 var(--ink);
+  --brutal-shadow-lg: 14px 14px 0 var(--ink);
   color-scheme: dark;
 }
 
 @theme inline {
   --color-bg: var(--bg);
   --color-bg-elevated: var(--bg-elevated);
+  --color-bg-warm: var(--bg-warm);
+  --color-bg-panel: var(--bg-panel);
+  --color-bg-highlight: var(--bg-highlight);
   --color-ink: var(--ink);
   --color-muted: var(--muted);
   --color-accent: var(--accent);
@@ -83,15 +96,17 @@ html {
 
 body {
   background: var(--bg);
+  background-image: var(--aurora);
+  background-attachment: fixed;
   color: var(--ink);
   font-family: var(--font-display);
   min-height: 100%;
-  transition: background-color 0.25s ease, color 0.25s ease;
+  transition: background-color 0.2s ease, color 0.2s ease;
 }
 
 ::selection {
-  background: var(--accent);
-  color: var(--bg);
+  background: var(--ink);
+  color: var(--bg-elevated);
 }
 
 .font-display {
@@ -103,20 +118,45 @@ body {
 }
 
 .section-pad {
-  padding-inline: clamp(1.25rem, 4vw, 3.5rem);
+  padding-inline: clamp(1rem, 4vw, 3rem);
 }
 
 .section-y {
-  padding-block: clamp(4.5rem, 10vw, 7.5rem);
+  padding-block: clamp(5rem, 12vw, 9rem);
+}
+
+.brutal-box {
+  border: 3px solid var(--ink);
+  box-shadow: var(--brutal-shadow);
+  background: var(--bg-elevated);
+}
+
+.brutal-box-lg {
+  border: 4px solid var(--ink);
+  box-shadow: var(--brutal-shadow-lg);
+  background: var(--bg-elevated);
+}
+
+.brutal-rule {
+  height: 3px;
+  background: var(--ink);
 }
 
 .aura-grid {
-  background-image: radial-gradient(
-    circle at 1px 1px,
-    var(--pattern-dot) 1px,
-    transparent 0
-  );
-  background-size: 22px 22px;
+  background-image: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 47px,
+    var(--pattern-dot) 47px,
+    var(--pattern-dot) 48px
+  ),
+    repeating-linear-gradient(
+      90deg,
+      transparent,
+      transparent 47px,
+      var(--pattern-dot) 47px,
+      var(--pattern-dot) 48px
+    );
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -134,17 +174,5 @@ body {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
-  }
-}
-
-@keyframes hero-glow {
-  0%,
-  100% {
-    transform: translate(0, 0) scale(1);
-    opacity: 0.55;
-  }
-  50% {
-    transform: translate(-3%, 4%) scale(1.08);
-    opacity: 0.85;
   }
 }

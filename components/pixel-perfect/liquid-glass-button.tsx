@@ -12,51 +12,15 @@ type LiquidGlassButtonProps = {
 };
 
 export default function LiquidGlassButton({
-  children = "Liquid Glass",
+  children = "Button",
   className,
   href,
   onClick,
   type = "button",
 }: LiquidGlassButtonProps) {
   const classes = cn(
-    "relative inline-flex items-center justify-center overflow-visible rounded-sm border-none bg-transparent px-7 py-3 text-sm font-medium text-ink",
+    "inline-flex items-center justify-center border-[3px] border-ink bg-bg px-7 py-3 text-sm font-bold uppercase tracking-[0.1em] text-ink shadow-[6px_6px_0_var(--ink)] transition-transform hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[4px_4px_0_var(--ink)] active:translate-x-[4px] active:translate-y-[4px] active:shadow-none",
     className,
-  );
-
-  const inner = (
-    <>
-      <span className="relative z-50">{children}</span>
-      <span
-        className="pointer-events-none absolute inset-0 z-40 rounded-sm opacity-70"
-        aria-hidden
-        style={{
-          background:
-            "conic-gradient(from 102deg at 52% 38%, rgba(255,255,255,0.45) 0deg, rgba(160,160,170,0.5) 80deg, rgba(80,80,90,0.4) 140deg, rgba(255,255,255,0.35) 200deg, rgba(140,140,150,0.45) 280deg, rgba(255,255,255,0.4) 360deg)",
-          padding: "1.5px",
-          WebkitMask:
-            "linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0)",
-          WebkitMaskComposite: "xor",
-          maskComposite: "exclude",
-        }}
-      />
-      <span
-        className="absolute inset-[1px] z-40 rounded-sm"
-        style={{
-          background: "color-mix(in srgb, var(--bg-elevated) 80%, transparent)",
-          backdropFilter: "blur(12px)",
-        }}
-        aria-hidden
-      />
-      <span
-        className="pointer-events-none absolute inset-0 z-0 rounded-sm"
-        style={{
-          transform: "translate(0, 6px)",
-          background: "rgba(0,0,0,0.18)",
-          filter: "blur(12px)",
-        }}
-        aria-hidden
-      />
-    </>
   );
 
   if (href) {
@@ -69,14 +33,14 @@ export default function LiquidGlassButton({
           ? { target: "_blank", rel: "noopener noreferrer" }
           : {})}
       >
-        {inner}
+        {children}
       </a>
     );
   }
 
   return (
     <button type={type} onClick={onClick} className={classes}>
-      {inner}
+      {children}
     </button>
   );
 }

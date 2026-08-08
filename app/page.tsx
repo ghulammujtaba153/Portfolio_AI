@@ -12,16 +12,28 @@ export default function Home() {
     <>
       <SiteHeader />
       <main className="flex-1">
-        {/* Sliding cover — reveals sticky contact underneath (Pixel Perfect footer-reveal) */}
-        <div className="relative z-10 bg-bg">
-          <Hero />
-          <About />
-          <Experience />
-          <Projects />
-          <Skills />
+        <div className="relative z-10">
+          <div style={{ background: "var(--mist)" }}>
+            <Hero />
+          </div>
+          <div style={{ background: "var(--ivory)" }}>
+            <About />
+          </div>
+          <div style={{ background: "var(--linen)" }}>
+            <Experience />
+          </div>
+          <div style={{ background: "var(--snow)" }}>
+            <Projects />
+          </div>
+          <div style={{ background: "var(--cream)" }}>
+            <Skills />
+          </div>
         </div>
 
-        <div className="sticky bottom-0 z-0 bg-bg-elevated">
+        <div
+          className="sticky bottom-0 z-0"
+          style={{ background: "var(--bg-elevated)" }}
+        >
           <Contact />
           <SiteFooter />
         </div>

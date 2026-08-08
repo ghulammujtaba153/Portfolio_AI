@@ -3,26 +3,21 @@ import GlassButton from "@/components/pixel-perfect/glass-button";
 import LiquidGlassButton from "@/components/pixel-perfect/liquid-glass-button";
 import StarBorder from "@/components/pixel-perfect/star-border";
 import ScrollHeadline from "@/components/pixel-perfect/scroll-headline";
+import BrutalAccent from "@/components/sections/BrutalAccent";
 
 export default function Contact() {
   return (
     <section
       id="contact"
-      className="relative flex min-h-[70vh] flex-col justify-end overflow-hidden section-pad section-y"
+      className="relative flex min-h-[70vh] flex-col justify-end overflow-hidden border-t-[4px] border-ink section-pad section-y"
     >
-      <div
-        aria-hidden
-        className="pointer-events-none absolute inset-0 opacity-50"
-        style={{
-          background:
-            "radial-gradient(50% 60% at 70% 40%, rgba(34,211,238,0.18), transparent 70%)",
-        }}
-      />
+      <BrutalAccent side="left" />
+      <div className="absolute inset-0 aura-grid opacity-30" />
       <div className="relative mx-auto w-full max-w-6xl pb-4">
-        <p className="font-mono text-[11px] uppercase tracking-[0.24em] text-accent">
+        <p className="font-mono text-[11px] font-bold uppercase tracking-[0.2em] text-ink">
           Contact
         </p>
-        <ScrollHeadline className="mt-3 max-w-2xl text-4xl font-semibold tracking-tight sm:text-5xl">
+        <ScrollHeadline className="mt-3 max-w-4xl text-5xl font-extrabold uppercase tracking-tighter sm:text-6xl lg:text-7xl">
           {"Let's ship the next intelligent system"}
         </ScrollHeadline>
         <p className="mt-4 max-w-xl text-sm leading-relaxed text-muted sm:text-base">

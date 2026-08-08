@@ -16,6 +16,7 @@ import {
 import GlassButton from "@/components/pixel-perfect/glass-button";
 import ScrollHeadline from "@/components/pixel-perfect/scroll-headline";
 import LineHoverTitle from "@/components/pixel-perfect/line-hover-title";
+import BrutalAccent from "@/components/sections/BrutalAccent";
 import { cn } from "@/lib/utils";
 
 function ProjectVisual({
@@ -95,17 +96,17 @@ function StageFrame({ project }: { project: Project }) {
       />
       <div
         ref={frameRef}
-        className="relative overflow-hidden rounded-sm border border-line bg-bg-elevated shadow-[0_28px_56px_-28px_rgba(0,0,0,0.55)] transition-transform duration-300 ease-out will-change-transform"
+        className="relative overflow-hidden border-[3px] border-ink bg-bg-elevated shadow-[10px_10px_0_var(--ink)] transition-transform duration-300 ease-out will-change-transform"
         style={{
           transform: "rotateX(12deg) rotateY(-16deg)",
           transformStyle: "preserve-3d",
         }}
       >
-        <div className="flex h-7 items-center gap-1.5 border-b border-line bg-bg-elevated px-2.5">
-          <span className="size-1.5 rounded-full bg-muted/40" />
-          <span className="size-1.5 rounded-full bg-muted/40" />
-          <span className="size-1.5 rounded-full bg-muted/40" />
-          <span className="ml-2 truncate font-mono text-[9px] uppercase tracking-[0.16em] text-muted">
+        <div className="flex h-7 items-center gap-1.5 border-b-[3px] border-ink bg-ink px-2.5">
+          <span className="size-2 bg-bg" />
+          <span className="size-2 bg-bg/70" />
+          <span className="size-2 bg-bg/40" />
+          <span className="ml-2 truncate font-mono text-[9px] uppercase tracking-[0.16em] text-bg">
             {project.slug}
           </span>
         </div>
@@ -171,20 +172,13 @@ export default function Projects() {
 
   return (
     <section id="projects" className="section-y section-pad relative overflow-hidden">
-      <div
-        aria-hidden
-        className="pointer-events-none absolute inset-x-0 top-24 h-[50vh] opacity-70"
-        style={{
-          background:
-            "radial-gradient(55% 60% at 70% 30%, color-mix(in srgb, var(--accent) 12%, transparent), transparent 70%)",
-        }}
-      />
+      <BrutalAccent side="right" />
 
       <div className="relative mx-auto max-w-6xl">
-        <p className="font-mono text-[11px] uppercase tracking-[0.24em] text-accent">
+        <p className="font-mono text-[11px] font-bold uppercase tracking-[0.2em] text-ink">
           Projects
         </p>
-        <ScrollHeadline className="mt-3 max-w-2xl text-4xl font-semibold tracking-tight sm:text-5xl">
+        <ScrollHeadline className="mt-3 max-w-4xl text-5xl font-extrabold uppercase tracking-tighter sm:text-6xl lg:text-7xl">
           Selected work
         </ScrollHeadline>
         <p className="mt-3 max-w-xl text-sm leading-relaxed text-muted sm:text-base">
@@ -271,7 +265,7 @@ export default function Projects() {
                   type="button"
                   aria-label="Previous project"
                   onClick={() => go(index - 1)}
-                  className="inline-flex size-10 items-center justify-center border border-line text-muted transition-colors hover:border-accent hover:text-ink"
+                  className="inline-flex size-10 items-center justify-center border-[3px] border-ink font-bold text-ink shadow-[3px_3px_0_var(--ink)] transition-transform hover:translate-x-[1px] hover:translate-y-[1px] hover:shadow-[2px_2px_0_var(--ink)]"
                 >
                   ←
                 </button>
@@ -279,7 +273,7 @@ export default function Projects() {
                   type="button"
                   aria-label="Next project"
                   onClick={() => go(index + 1)}
-                  className="inline-flex size-10 items-center justify-center border border-line text-muted transition-colors hover:border-accent hover:text-ink"
+                  className="inline-flex size-10 items-center justify-center border-[3px] border-ink font-bold text-ink shadow-[3px_3px_0_var(--ink)] transition-transform hover:translate-x-[1px] hover:translate-y-[1px] hover:shadow-[2px_2px_0_var(--ink)]"
                 >
                   →
                 </button>
@@ -306,7 +300,7 @@ export default function Projects() {
           {otherProjects.map((project, i) => (
             <li
               key={project.slug}
-              className="group border-t border-line last:border-b"
+              className="group border-t-[3px] border-ink last:border-b-[3px]"
             >
               <div className="grid items-center gap-4 py-5 sm:grid-cols-[4.5rem_minmax(0,1fr)_auto] sm:gap-5">
                 <div className="relative hidden aspect-[16/10] overflow-hidden bg-bg-elevated sm:block">

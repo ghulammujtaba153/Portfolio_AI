@@ -66,11 +66,15 @@ export default function AboutPanel({ className = "" }: { className?: string }) {
         aria-label="Neural mesh visual"
       >
         <g stroke="var(--ink)" strokeOpacity="0.35" strokeWidth="1.2" fill="none">
-          <circle cx="400" cy="420" r="180" />
-          <circle cx="400" cy="420" r="260" />
-          <circle cx="400" cy="420" r="340" />
+          <ellipse cx="400" cy="420" rx="180" ry="168" />
+          <ellipse cx="400" cy="420" rx="260" ry="236" />
+          <ellipse cx="400" cy="420" rx="340" ry="300" />
           <path d="M120 420 H680 M400 140 V700" />
           <path d="M210 230 L590 610 M590 230 L210 610" />
+          <path
+            d="M160 780 C280 720 360 860 480 790 C600 720 680 820 760 760"
+            strokeOpacity="0.25"
+          />
         </g>
         <g fill="var(--ink)">
           <circle cx="400" cy="420" r="10" />
@@ -80,6 +84,14 @@ export default function AboutPanel({ className = "" }: { className?: string }) {
           <circle cx="240" cy="420" r="6" fill="var(--accent)" />
           <circle cx="520" cy="280" r="5" />
           <circle cx="280" cy="560" r="5" />
+          <ellipse
+            cx="400"
+            cy="860"
+            rx="120"
+            ry="18"
+            fill="var(--ink)"
+            fillOpacity="0.12"
+          />
         </g>
         <text
           x="64"

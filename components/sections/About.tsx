@@ -4,6 +4,7 @@ import { motion, useReducedMotion } from "motion/react";
 import { education, profile } from "@/lib/content";
 import AboutPanel from "@/components/sections/AboutPanel";
 import ScrollHeadline from "@/components/pixel-perfect/scroll-headline";
+import BrutalAccent from "@/components/sections/BrutalAccent";
 
 const ease = [0.22, 1, 0.36, 1] as const;
 
@@ -16,20 +17,13 @@ export default function About() {
         aria-hidden
         className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-line to-transparent"
       />
-      <div
-        aria-hidden
-        className="pointer-events-none absolute -right-[20%] top-[20%] h-[50vmin] w-[50vmin] rounded-full opacity-40 blur-3xl"
-        style={{
-          background:
-            "radial-gradient(circle, color-mix(in srgb, var(--accent) 14%, transparent), transparent 70%)",
-        }}
-      />
+      <BrutalAccent side="right" />
 
       <div className="relative mx-auto max-w-6xl">
-        <p className="font-mono text-[11px] uppercase tracking-[0.24em] text-accent">
+        <p className="font-mono text-[11px] font-bold uppercase tracking-[0.2em] text-ink">
           Profile
         </p>
-        <ScrollHeadline className="mt-3 max-w-3xl text-4xl font-semibold tracking-tight sm:text-5xl">
+        <ScrollHeadline className="mt-3 max-w-4xl text-5xl font-extrabold uppercase tracking-tighter sm:text-6xl lg:text-7xl">
           Building intelligence end to end
         </ScrollHeadline>
       </div>
@@ -56,7 +50,7 @@ export default function About() {
             <p className="font-mono text-[11px] uppercase tracking-[0.2em] text-muted">
               Education
             </p>
-            <ul className="mt-6 space-y-0 border-l border-line">
+            <ul className="mt-6 space-y-0 border-l-[3px] border-ink">
               {education.map((item, i) => (
                 <li
                   key={`${item.school}-${item.degree}`}
@@ -64,7 +58,7 @@ export default function About() {
                 >
                   <span
                     aria-hidden
-                    className="absolute left-[-3.5px] size-1.5 rounded-full bg-accent"
+                    className="absolute left-[-5px] size-2.5 bg-ink"
                     style={{ top: i === 0 ? "0.5rem" : "1.35rem" }}
                   />
                   <div className="flex flex-wrap items-baseline justify-between gap-2">
@@ -90,7 +84,7 @@ export default function About() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.4 }}
             transition={{ duration: 0.55, delay: 0.12, ease }}
-            className="mt-12 grid gap-6 border-t border-line pt-8 sm:grid-cols-3"
+            className="mt-12 grid gap-6 border-t-[3px] border-ink pt-8 sm:grid-cols-3"
           >
             <div>
               <dt className="font-mono text-[10px] uppercase tracking-[0.18em] text-muted">

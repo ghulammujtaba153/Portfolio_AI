@@ -89,7 +89,7 @@ export default function MagneticButton({
   }, []);
 
   const classes = cn(
-    "rounded-sm bg-accent px-7 py-3 text-sm font-semibold text-bg shadow-[0_12px_28px_-14px_rgba(0,0,0,0.55)]",
+    "rounded-none bg-ink px-7 py-3.5 text-sm font-bold uppercase tracking-[0.12em] text-bg shadow-[6px_6px_0_color-mix(in_srgb,var(--ink)_35%,transparent)]",
     className,
   );
 

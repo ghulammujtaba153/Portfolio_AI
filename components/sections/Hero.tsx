@@ -2,12 +2,10 @@
 
 import { motion, useReducedMotion } from "motion/react";
 import { profile } from "@/lib/content";
-import LiquidGlassButton from "@/components/pixel-perfect/liquid-glass-button";
-import MagneticButton from "@/components/pixel-perfect/magnetic-button";
-import HeroAtmosphere from "@/components/sections/HeroAtmosphere";
+import BrutalField from "@/components/sections/BrutalField";
 import HeroName from "@/components/sections/HeroName";
 
-const ease = [0.22, 1, 0.36, 1] as const;
+const ease = [0.16, 1, 0.3, 1] as const;
 
 export default function Hero() {
   const reduced = useReducedMotion();
@@ -15,27 +13,27 @@ export default function Hero() {
   return (
     <section
       id="top"
-      className="relative flex min-h-[100svh] items-center overflow-hidden pb-20 pt-28"
+      className="relative flex min-h-[100svh] items-end overflow-hidden border-b-[4px] border-ink pb-16 pt-28 sm:items-center sm:pb-24"
     >
-      <HeroAtmosphere />
+      <BrutalField />
 
       <div className="section-pad relative z-10 mx-auto w-full max-w-6xl">
-        <motion.p
-          initial={reduced ? false : { opacity: 0, y: 10 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, ease }}
-          className="font-mono text-[11px] uppercase tracking-[0.28em] text-accent"
+        <motion.div
+          initial={reduced ? false : { opacity: 0, x: -20 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.5, ease }}
+          className="inline-block border-[3px] border-ink bg-bg px-3 py-1.5 font-mono text-[11px] uppercase tracking-[0.22em] text-ink shadow-[4px_4px_0_var(--ink)]"
         >
           {profile.title}
-        </motion.p>
+        </motion.div>
 
         <HeroName name={profile.name} />
 
         <motion.p
-          initial={reduced ? false : { opacity: 0, y: 14 }}
+          initial={reduced ? false : { opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.22, ease }}
-          className="mt-7 max-w-md text-sm leading-relaxed text-muted sm:text-base"
+          transition={{ duration: 0.5, delay: 0.18, ease }}
+          className="mt-8 max-w-lg border-l-[4px] border-ink pl-4 text-sm leading-relaxed text-muted sm:text-base"
         >
           End-to-end AI — deep learning, vision, NLP, and generative
           systems from training and XAI through APIs, apps, and cloud.
@@ -44,15 +42,21 @@ export default function Hero() {
         <motion.div
           initial={reduced ? false : { opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.55, delay: 0.34, ease }}
-          className="mt-10 flex flex-wrap items-center gap-1 sm:gap-2"
+          transition={{ duration: 0.5, delay: 0.28, ease }}
+          className="mt-10 flex flex-wrap items-center gap-4"
         >
-          <div className="-m-4 sm:-m-6">
-            <MagneticButton href="#projects">View projects</MagneticButton>
-          </div>
-          <LiquidGlassButton href={`mailto:${profile.email}`}>
+          <a
+            href="#projects"
+            className="inline-flex border-[3px] border-ink bg-ink px-7 py-3.5 text-sm font-bold uppercase tracking-[0.12em] text-bg shadow-[6px_6px_0_color-mix(in_srgb,var(--ink)_35%,transparent)] transition-transform hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[4px_4px_0_color-mix(in_srgb,var(--ink)_35%,transparent)]"
+          >
+            View projects
+          </a>
+          <a
+            href={`mailto:${profile.email}`}
+            className="inline-flex border-[3px] border-ink bg-bg px-7 py-3.5 text-sm font-bold uppercase tracking-[0.12em] text-ink shadow-[6px_6px_0_var(--ink)] transition-transform hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[4px_4px_0_var(--ink)]"
+          >
             Email me
-          </LiquidGlassButton>
+          </a>
         </motion.div>
       </div>
     </section>

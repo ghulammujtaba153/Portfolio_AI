@@ -21,10 +21,9 @@ type CardProps = {
   progress: MotionValue<number>;
   range: [number, number];
   targetScale: number;
-  accent: string;
 };
 
-function StackCard({ i, job, progress, range, targetScale, accent }: CardProps) {
+function StackCard({ i, job, progress, range, targetScale }: Omit<CardProps, "accent">) {
   const scale = useTransform(progress, range, [1, targetScale]);
 
   return (
@@ -33,31 +32,26 @@ function StackCard({ i, job, progress, range, targetScale, accent }: CardProps) 
         style={{
           scale,
           top: i * 18,
-          borderColor: `${accent}55`,
         }}
-        className="relative w-full max-w-3xl origin-top border bg-bg-elevated p-6 shadow-[0_24px_60px_-28px_rgba(0,0,0,0.65)] sm:p-8"
+        className="relative w-full max-w-3xl origin-top border-[3px] border-ink bg-bg p-6 shadow-[10px_10px_0_var(--ink)] sm:p-8"
       >
-        <div
-          className="absolute inset-x-0 top-0 h-px"
-          style={{
-            background: `linear-gradient(90deg, transparent, ${accent}, transparent)`,
-          }}
-        />
+        <div className="mb-5 h-3 w-full bg-ink" />
         <div className="flex flex-wrap items-baseline justify-between gap-2">
-          <h3 className="text-2xl font-semibold text-ink sm:text-3xl">{job.role}</h3>
-          <span className="font-mono text-[11px] uppercase tracking-[0.16em] text-accent">
+          <h3 className="text-2xl font-extrabold uppercase tracking-tight text-ink sm:text-3xl">
+            {job.role}
+          </h3>
+          <span className="border-[2px] border-ink px-2 py-0.5 font-mono text-[11px] font-bold uppercase tracking-[0.14em] text-ink">
             {job.period}
           </span>
         </div>
-        <p className="mt-1 text-muted">
+        <p className="mt-2 font-mono text-xs uppercase tracking-[0.14em] text-muted">
           {job.company} · {job.location}
         </p>
         <ul className="mt-6 space-y-3">
           {job.bullets.map((bullet) => (
             <li
               key={bullet}
-              className="border-l pl-4 text-sm leading-relaxed text-muted"
-              style={{ borderColor: `${accent}66` }}
+              className="border-l-[3px] border-ink pl-4 text-sm leading-relaxed text-muted"
             >
               {bullet}
             </li>
@@ -67,8 +61,6 @@ function StackCard({ i, job, progress, range, targetScale, accent }: CardProps) 
     </div>
   );
 }
-
-const ACCENTS = ["#c4c4cc", "#8b8b93"];
 
 export default function ExperienceStack({ jobs }: { jobs: Job[] }) {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -93,7 +85,6 @@ export default function ExperienceStack({ jobs }: { jobs: Job[] }) {
             progress={scrollYProgress}
             range={[i * (1 / jobs.length), 1]}
             targetScale={targetScale}
-            accent={ACCENTS[i % ACCENTS.length]}
           />
         );
       })}

@@ -88,7 +88,7 @@ export default function HeroName({ name }: { name: string }) {
       initial={reduced ? false : { opacity: 0, y: 28 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.75, delay: 0.08, ease }}
-      className="relative mt-5 text-[clamp(3.5rem,12vw,8rem)] font-extrabold leading-[0.92] tracking-tight text-ink"
+      className="relative mt-6 text-[clamp(4.25rem,15vw,10.5rem)] font-extrabold uppercase leading-[0.86] tracking-tighter text-ink"
       style={
         {
           "--spot-x": "50%",
