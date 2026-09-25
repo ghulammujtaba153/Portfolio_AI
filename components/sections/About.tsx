@@ -1,10 +1,9 @@
 "use client";
 
 import { motion, useReducedMotion } from "motion/react";
-import { education, highlights, profile } from "@/lib/content";
+import { education, profile } from "@/lib/content";
 import AboutPanel from "@/components/sections/AboutPanel";
 import ScrollHeadline from "@/components/pixel-perfect/scroll-headline";
-import BrutalAccent from "@/components/sections/BrutalAccent";
 
 const ease = [0.22, 1, 0.36, 1] as const;
 
@@ -13,17 +12,10 @@ export default function About() {
 
   return (
     <section id="about" className="section-y section-pad relative overflow-hidden">
-      <div
-        aria-hidden
-        className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-line to-transparent"
-      />
-      <BrutalAccent side="right" />
 
       <div className="relative mx-auto max-w-6xl">
-        <p className="font-mono text-[11px] font-bold uppercase tracking-[0.2em] text-ink">
-          Profile
-        </p>
-        <ScrollHeadline className="mt-3 max-w-4xl text-5xl font-extrabold uppercase tracking-tighter sm:text-6xl lg:text-7xl">
+        <p className="eyebrow">01 · Profile</p>
+        <ScrollHeadline className="heading mt-3 max-w-3xl">
           Building intelligence end to end
         </ScrollHeadline>
       </div>
@@ -35,7 +27,7 @@ export default function About() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.35 }}
             transition={{ duration: 0.65, ease }}
-            className="max-w-2xl text-sm leading-relaxed text-muted sm:text-base"
+            className="max-w-2xl text-base leading-relaxed text-muted sm:text-lg"
           >
             {profile.summary}
           </motion.p>
@@ -47,10 +39,10 @@ export default function About() {
             transition={{ duration: 0.6, delay: 0.08, ease }}
             className="mt-12"
           >
-            <p className="font-mono text-[11px] uppercase tracking-[0.2em] text-muted">
+            <p className="font-mono text-xs uppercase tracking-[0.08em] text-subtle">
               Education
             </p>
-            <ul className="mt-6 space-y-0 border-l-[3px] border-ink">
+            <ul className="mt-6 space-y-0 border-l border-line-strong">
               {education.map((item, i) => (
                 <li
                   key={`${item.school}-${item.degree}`}
@@ -58,7 +50,7 @@ export default function About() {
                 >
                   <span
                     aria-hidden
-                    className="absolute left-[-5px] size-2.5 bg-ink"
+                    className="absolute left-[-4.5px] size-2 rounded-full bg-accent ring-4 ring-bg"
                     style={{ top: i === 0 ? "0.5rem" : "1.35rem" }}
                   />
                   <div className="flex flex-wrap items-baseline justify-between gap-2">
@@ -66,7 +58,7 @@ export default function About() {
                       {item.degree}
                     </p>
                     {"status" in item && item.status ? (
-                      <span className="font-mono text-[10px] uppercase tracking-[0.16em] text-accent">
+                      <span className="rounded-full bg-accent-soft px-2 py-0.5 font-mono text-[11px] text-accent">
                         {item.status}
                       </span>
                     ) : null}
@@ -79,49 +71,27 @@ export default function About() {
             </ul>
           </motion.div>
 
-          <motion.div
-            initial={reduced ? false : { opacity: 0, y: 16 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.35 }}
-            transition={{ duration: 0.55, delay: 0.1, ease }}
-            className="mt-12 grid grid-cols-2 gap-3 border-t-[3px] border-ink pt-8 sm:grid-cols-4"
-          >
-            {highlights.map((item) => (
-              <div
-                key={item.label}
-                className="border-[2px] border-ink bg-bg px-3 py-3 shadow-[3px_3px_0_var(--ink)]"
-              >
-                <p className="text-xl font-extrabold tracking-tight sm:text-2xl">
-                  {item.value}
-                </p>
-                <p className="mt-1 font-mono text-[9px] uppercase tracking-[0.14em] text-muted">
-                  {item.label}
-                </p>
-              </div>
-            ))}
-          </motion.div>
-
           <motion.dl
             initial={reduced ? false : { opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.4 }}
             transition={{ duration: 0.55, delay: 0.14, ease }}
-            className="mt-8 grid gap-6 sm:grid-cols-3"
+            className="mt-12 grid gap-6 border-t border-line pt-8 sm:grid-cols-3"
           >
             <div>
-              <dt className="font-mono text-[10px] uppercase tracking-[0.18em] text-muted">
+              <dt className="font-mono text-xs uppercase tracking-[0.08em] text-subtle">
                 Based in
               </dt>
               <dd className="mt-2 text-sm font-medium">{profile.location}</dd>
             </div>
             <div>
-              <dt className="font-mono text-[10px] uppercase tracking-[0.18em] text-muted">
+              <dt className="font-mono text-xs uppercase tracking-[0.08em] text-subtle">
                 Focus
               </dt>
               <dd className="mt-2 text-sm font-medium">DL · CV · NLP · MLOps</dd>
             </div>
             <div>
-              <dt className="font-mono text-[10px] uppercase tracking-[0.18em] text-muted">
+              <dt className="font-mono text-xs uppercase tracking-[0.08em] text-subtle">
                 Stack
               </dt>
               <dd className="mt-2 text-sm font-medium">
@@ -138,7 +108,9 @@ export default function About() {
           transition={{ duration: 0.7, ease }}
           className="lg:sticky lg:top-28 lg:justify-self-end"
         >
-          <AboutPanel className="max-w-xs sm:max-w-sm" />
+          <div className="card p-6">
+            <AboutPanel className="max-w-xs sm:max-w-sm" />
+          </div>
         </motion.div>
       </div>
     </section>

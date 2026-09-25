@@ -6,13 +6,11 @@ export default function Experience() {
   return (
     <section
       id="experience"
-      className="section-y section-pad border-y-[3px] border-ink"
+      className="section-y section-pad border-y border-line bg-bg-panel/40"
     >
       <div className="mx-auto max-w-6xl">
-        <p className="font-mono text-[11px] font-bold uppercase tracking-[0.2em] text-ink">
-          Experience
-        </p>
-        <ScrollHeadline className="mt-3 max-w-4xl text-5xl font-extrabold uppercase tracking-tighter sm:text-6xl lg:text-7xl">
+        <p className="eyebrow">02 · Experience</p>
+        <ScrollHeadline className="heading mt-3 max-w-3xl">
           Product work and client delivery
         </ScrollHeadline>
 

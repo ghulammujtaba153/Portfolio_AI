@@ -200,7 +200,7 @@ export default function HeroAtmosphere() {
 
       <svg
         viewBox="0 0 900 700"
-        className="absolute right-[-12%] top-[6%] h-[85%] w-[75%] max-w-none opacity-40 dark:opacity-50 sm:right-[-4%] sm:w-[58%]"
+        className="absolute right-[-12%] top-[6%] h-[85%] w-[75%] max-w-none opacity-60 dark:opacity-70 sm:right-[-4%] sm:w-[58%]"
         fill="none"
       >
         <g ref={webRef} className="will-change-transform">
@@ -272,7 +272,7 @@ export default function HeroAtmosphere() {
         </g>
       </svg>
 
-      <div className="absolute inset-y-0 left-0 w-[55%] bg-gradient-to-r from-bg via-bg/80 to-transparent" />
+      <div className="absolute inset-y-0 left-0 w-[60%] bg-gradient-to-r from-bg via-bg/85 to-transparent" />
       <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-bg to-transparent" />
     </div>
   );

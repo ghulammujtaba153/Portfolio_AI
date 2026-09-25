@@ -48,7 +48,7 @@ export default function ThemeSwitch() {
     <div
       role="group"
       aria-label="Color theme"
-      className="inline-flex items-center gap-0.5 border-[2px] border-ink bg-bg p-0.5"
+      className="inline-flex items-center gap-0.5 rounded-lg border border-line bg-bg-elevated p-0.5"
     >
       {OPTIONS.map((opt) => (
         <button
@@ -59,9 +59,9 @@ export default function ThemeSwitch() {
           aria-pressed={mode === opt.id}
           title={opt.label}
           className={cn(
-            "flex h-8 w-8 items-center justify-center transition-colors",
+            "flex size-7 items-center justify-center rounded-md transition-colors",
             mode === opt.id
-              ? "bg-ink text-bg"
+              ? "bg-bg-highlight text-ink"
               : "text-muted hover:text-ink",
           )}
         >

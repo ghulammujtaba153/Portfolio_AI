@@ -33,33 +33,27 @@ function StackCard({ i, job, progress, range, targetScale }: Omit<CardProps, "ac
           scale,
           top: i * 18,
         }}
-        className="relative w-full max-w-3xl origin-top border-[3px] border-ink bg-bg p-6 shadow-[10px_10px_0_var(--ink)] sm:p-8"
+        className="card relative w-full max-w-3xl origin-top p-6 shadow-[0_24px_48px_-24px_rgba(0,0,0,0.35)] sm:p-8"
       >
-        <div className="mb-5 flex items-center justify-between gap-3">
-          <div className="h-3 flex-1 bg-ink" />
-          <span className="font-mono text-[10px] font-bold uppercase tracking-[0.16em] text-muted">
-            {String(i + 1).padStart(2, "0")}
-          </span>
-        </div>
         <div className="flex flex-wrap items-baseline justify-between gap-2">
-          <h3 className="text-2xl font-extrabold uppercase tracking-tight text-ink sm:text-3xl">
+          <h3 className="text-xl font-semibold tracking-tight text-ink sm:text-2xl">
             {job.role}
           </h3>
-          <span className="border-[2px] border-ink px-2 py-0.5 font-mono text-[11px] font-bold uppercase tracking-[0.14em] text-ink">
+          <span className="chip">
             {job.period}
           </span>
         </div>
-        <p className="mt-2 text-lg font-semibold tracking-tight text-ink">
+        <p className="mt-1 text-base font-medium text-accent">
           {job.company}
         </p>
-        <p className="mt-1 font-mono text-[11px] uppercase tracking-[0.14em] text-muted">
+        <p className="mt-0.5 text-sm text-subtle">
           {job.location}
         </p>
-        <ul className="mt-6 space-y-3">
+        <ul className="mt-6 space-y-3 border-t border-line pt-6">
           {job.bullets.map((bullet) => (
             <li
               key={bullet}
-              className="border-l-[3px] border-ink pl-4 text-sm leading-relaxed text-muted"
+              className="relative pl-5 text-sm leading-relaxed text-muted before:absolute before:left-0 before:top-[0.6em] before:size-1.5 before:rounded-full before:bg-line-strong"
             >
               {bullet}
             </li>

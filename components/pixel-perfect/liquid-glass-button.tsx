@@ -19,7 +19,7 @@ export default function LiquidGlassButton({
   type = "button",
 }: LiquidGlassButtonProps) {
   const classes = cn(
-    "inline-flex items-center justify-center border-[3px] border-ink bg-bg px-7 py-3 text-sm font-bold uppercase tracking-[0.1em] text-ink shadow-[6px_6px_0_var(--ink)] transition-transform hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[4px_4px_0_var(--ink)] active:translate-x-[4px] active:translate-y-[4px] active:shadow-none",
+    "btn btn-secondary",
     className,
   );
 
